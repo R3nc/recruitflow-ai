@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RecruitFlow AI Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f4f4f4; }
+        h1 { color: #333; }
+        table { width: 100%; border-collapse: collapse; background: white; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: #333; color: white; }
+        .Pending { color: #e67e22; font-weight: bold; }
+        .Interview { color: #2980b9; font-weight: bold; }
+        .Hired { color: #27ae60; font-weight: bold; }
+        .Rejected { color: #c0392b; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>RecruitFlow AI — Applicant Dashboard</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Position</th>
+            <th>Status</th>
+        </tr>
+        {% for applicant in applicants %}
+        <tr>
+            <td>{{ applicant.id }}</td>
+            <td>{{ applicant.full_name }}</td>
+            <td>{{ applicant.email }}</td>
+            <td>{{ applicant.position }}</td>
+            <td class="{{ applicant.status.value }}">{{ applicant.status.value }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
